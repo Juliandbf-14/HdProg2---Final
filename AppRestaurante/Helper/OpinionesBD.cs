@@ -115,5 +115,18 @@ namespace AppRestaurante.Helper
             conexion.Close();
             return true;
         }
+
+        public bool EliminarDato(int intCodigo)
+        {
+            conexion = ObtenerConexionDB();
+            conexion.Open();
+
+            string eliminar = "DELETE Opinion_Calificacion WHERE Id = @intCodigo";
+            SqlCommand sql = new SqlCommand(eliminar, conexion);
+            sql.Parameters.AddWithValue("@intCodigo", intCodigo);
+
+            sql.ExecuteNonQuery();
+            return true;
+        }
     }
 }

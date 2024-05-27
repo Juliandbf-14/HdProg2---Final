@@ -115,6 +115,7 @@
             this.btnEliminarOpi.TabIndex = 41;
             this.btnEliminarOpi.Text = "Eliminar";
             this.btnEliminarOpi.UseVisualStyleBackColor = true;
+            this.btnEliminarOpi.Click += new System.EventHandler(this.btnEliminarOpi_Click);
             // 
             // btnActualizarOpi
             // 

@@ -119,8 +119,6 @@ namespace AppRestaurante.Interfaces_Graficas
             }
         }
 
-
-
         private void btnActualizarOpi_Click(object sender, EventArgs e)
         {
             operacionesBd = new OpinionesBD();
@@ -131,7 +129,7 @@ namespace AppRestaurante.Interfaces_Graficas
                 int id_restaurante = operacionesBd.ConsultarRestaurantes().Where(x => x.Nombre == nombre_Restaurante).Select(x => x.Id).FirstOrDefault();
 
                 operacionesBd = new OpinionesBD();
-                bool cambioInfo = (tempId != int.Parse(txtIdOpi.Text) || tempOpinion != txtOpinion.Text || tempCal != int.Parse(txtCalificacion.Text) || tempList.SelectedItem != listRestaurantes.SelectedItem);
+                bool cambioInfo = (tempId != int.Parse(txtIdOpi.Text) || tempOpinion != txtOpinion.Text || tempCal != int.Parse(txtCalificacion.Text));
 
                 OpinionCalificacion opinionObj = new OpinionCalificacion(txtOpinion.Text, int.Parse(txtCalificacion.Text), id_restaurante, int.Parse(txtIdOpi.Text));
 
@@ -153,6 +151,41 @@ namespace AppRestaurante.Interfaces_Graficas
                 MessageBox.Show($"Ops! Parece que ha ocurrido un error al actualizar los datos. Error:\n{error.Message}", "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnEliminarOpi_Click(object sender, EventArgs e)
+        {
+            operacionesBd = new OpinionesBD();
+            try
+            {
+
+                string nombre_Restaurante = listRestaurantes.Text;
+                int id_restaurante = operacionesBd.ConsultarRestaurantes().Where(x => x.Nombre == nombre_Restaurante).Select(x => x.Id).FirstOrDefault();
+
+                operacionesBd = new OpinionesBD();
+                bool cambioInfo = (int.Parse(txtIdOpi.Text) > 0 || !string.IsNullOrEmpty(txtOpinion.Text) || int.Parse(txtCalificacion.Text) > 0);
+
+                OpinionCalificacion opinionObj = new OpinionCalificacion(txtOpinion.Text, int.Parse(txtCalificacion.Text), id_restaurante, int.Parse(txtIdOpi.Text));
+
+                if (swModificarOpi && cambioInfo && opinionObj.ValidarPropiedades())
+                {
+                    bool swEliminado = operacionesBd.EliminarDato(opinionObj.Id);
+                    if (swEliminado)
+                    {
+                        LimpiarCampos();
+                        MessageBox.Show($"Opinion eliminada correctamente.", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Asegurate de llenar o modificar todos los campos de texto para continuar. ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show($"Ops! Parece que ha ocurrido un error al eliminar los datos. Error:\n{error.Message}", "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void btnModificarOpi_Click(object sender, EventArgs e)
         {
@@ -177,7 +210,7 @@ namespace AppRestaurante.Interfaces_Graficas
             tempId = int.Parse(txtIdOpi.Text);
             tempOpinion = txtOpinion.Text;
             tempCal = int.Parse(txtCalificacion.Text);
-            tempList.SelectedItem = tempList.Items[opinion.Restaurante_Id - 1];
+            
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
