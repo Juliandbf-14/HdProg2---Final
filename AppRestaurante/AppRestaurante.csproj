@@ -57,13 +57,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\BaseBD.cs" />
     <Compile Include="Helper\ConexionBD.cs" />
     <Compile Include="Helper\ConvertData.cs" />
     <Compile Include="Helper\ExportDataFile.cs" />
+    <Compile Include="Helper\MenuBD.cs" />
     <Compile Include="Helper\OpinionesBD.cs" />
     <Compile Include="Helper\RestauranteBD.cs" />
     <Compile Include="Helper\SolicitanteBD.cs" />
+    <Compile Include="Interfaces Graficas\GestionMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interfaces Graficas\GestionMenu.Designer.cs">
+      <DependentUpon>GestionMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces Graficas\GestionOpiniones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interfaces Graficas\GestionMenu.resx">
+      <DependentUpon>GestionMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interfaces Graficas\GestionOpiniones.resx">
       <DependentUpon>GestionOpiniones.cs</DependentUpon>

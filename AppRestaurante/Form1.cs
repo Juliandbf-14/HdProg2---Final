@@ -10,6 +10,7 @@ namespace AppRestaurante
         private GestionRestaurante forma_Rest;
         private GestionOpiniones forma_Opi;
         private GestionSolicitante forma_Soli;
+        private GestionMenu forma_Menu;
 
         public Form1()
         {
@@ -75,6 +76,24 @@ namespace AppRestaurante
         void CerrarFormaSolicitudes(object sender, FormClosedEventArgs e)
         {
             forma_Soli = null;
+            this.label1.Show();
+        }
+
+        private void menúToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (forma_Menu == null)
+            {
+                this.label1.Hide();
+                forma_Menu = new GestionMenu();
+                forma_Menu.MdiParent = this;
+                forma_Menu.FormClosed += new FormClosedEventHandler(CerrarFormaMenu);
+                forma_Menu.Show();
+            }
+        }
+
+        void CerrarFormaMenu(object sender, FormClosedEventArgs e)
+        {
+            forma_Menu = null;
             this.label1.Show();
         }
     }

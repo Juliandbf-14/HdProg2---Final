@@ -30,13 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restaurantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarRestauranteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opinionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.solicitanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,6 @@
             // 
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
             this.restaurantesToolStripMenuItem,
             this.opinionesToolStripMenuItem,
             this.solicitanteToolStripMenuItem});
@@ -63,17 +62,12 @@
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.homeToolStripMenuItem.Text = "Home ";
-            // 
             // restaurantesToolStripMenuItem
             // 
             this.restaurantesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buscarRestauranteToolStripMenuItem,
-            this.reservarToolStripMenuItem});
+            this.reservarToolStripMenuItem,
+            this.menúToolStripMenuItem});
             this.restaurantesToolStripMenuItem.Name = "restaurantesToolStripMenuItem";
             this.restaurantesToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.restaurantesToolStripMenuItem.Text = "Restaurantes";
@@ -82,15 +76,22 @@
             // buscarRestauranteToolStripMenuItem
             // 
             this.buscarRestauranteToolStripMenuItem.Name = "buscarRestauranteToolStripMenuItem";
-            this.buscarRestauranteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.buscarRestauranteToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.buscarRestauranteToolStripMenuItem.Text = "Ver Restaurantes";
             this.buscarRestauranteToolStripMenuItem.Click += new System.EventHandler(this.buscarRestauranteToolStripMenuItem_Click);
             // 
             // reservarToolStripMenuItem
             // 
             this.reservarToolStripMenuItem.Name = "reservarToolStripMenuItem";
-            this.reservarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.reservarToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
             this.reservarToolStripMenuItem.Text = "Reservar";
+            // 
+            // menúToolStripMenuItem
+            // 
+            this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
+            this.menúToolStripMenuItem.Size = new System.Drawing.Size(201, 26);
+            this.menúToolStripMenuItem.Text = "Menú";
+            this.menúToolStripMenuItem.Click += new System.EventHandler(this.menúToolStripMenuItem_Click);
             // 
             // opinionesToolStripMenuItem
             // 
@@ -98,6 +99,13 @@
             this.opinionesToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.opinionesToolStripMenuItem.Text = "Opiniones";
             this.opinionesToolStripMenuItem.Click += new System.EventHandler(this.opinionesToolStripMenuItem_Click);
+            // 
+            // solicitanteToolStripMenuItem
+            // 
+            this.solicitanteToolStripMenuItem.Name = "solicitanteToolStripMenuItem";
+            this.solicitanteToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.solicitanteToolStripMenuItem.Text = "Solicitante";
+            this.solicitanteToolStripMenuItem.Click += new System.EventHandler(this.solicitanteToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -108,13 +116,6 @@
             this.label1.Size = new System.Drawing.Size(287, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "APP RESTAURANTE";
-            // 
-            // solicitanteToolStripMenuItem
-            // 
-            this.solicitanteToolStripMenuItem.Name = "solicitanteToolStripMenuItem";
-            this.solicitanteToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
-            this.solicitanteToolStripMenuItem.Text = "Solicitante";
-            this.solicitanteToolStripMenuItem.Click += new System.EventHandler(this.solicitanteToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -143,9 +144,9 @@
         private System.Windows.Forms.ToolStripMenuItem buscarRestauranteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opinionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem solicitanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menúToolStripMenuItem;
     }
 }
 

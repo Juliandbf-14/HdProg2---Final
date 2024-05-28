@@ -120,7 +120,6 @@ namespace AppRestaurante.Interfaces_Graficas
 
         private void btnActualizarOpi_Click(object sender, EventArgs e)
         {
-            operacionesBd = new OpinionesBD();
             try
             {   
 
@@ -153,7 +152,6 @@ namespace AppRestaurante.Interfaces_Graficas
 
         private void btnEliminarOpi_Click(object sender, EventArgs e)
         {
-            operacionesBd = new OpinionesBD();
             try
             {
 
@@ -192,8 +190,10 @@ namespace AppRestaurante.Interfaces_Graficas
             btnModificarOpi.Hide();
             txtIdOpi.Enabled = false;
             MostrarComponentesOpinion();
-
-            BuscarOpinionId();
+            if (ResultadosOpi.ColumnCount > 0 && ResultadosOpi.RowCount > 0)
+            {
+                BuscarOpinionId();
+            }
         }
 
         private void btnSalirOpi_Click(object sender, EventArgs e)

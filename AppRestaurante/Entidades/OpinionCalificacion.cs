@@ -27,7 +27,7 @@ namespace AppRestaurante.Entidades
 
         public bool ValidarPropiedades()
         {
-            return (!string.IsNullOrEmpty(Opinion) && this.Calificacion > 0 && this.Restaurante_Id != null );
+            return (!string.IsNullOrEmpty(Opinion) && this.Calificacion > 0 && this.Restaurante_Id > 0 );
         }
     }
 }
