@@ -35,11 +35,11 @@
             this.lblNomSol = new System.Windows.Forms.Label();
             this.txtApeSol = new System.Windows.Forms.TextBox();
             this.lblApeSol = new System.Windows.Forms.Label();
-            this.txtTelRest = new System.Windows.Forms.TextBox();
+            this.txtEmailSol = new System.Windows.Forms.TextBox();
             this.lblEmailSol = new System.Windows.Forms.Label();
             this.txtCedSol = new System.Windows.Forms.TextBox();
             this.lblCedSol = new System.Windows.Forms.Label();
-            this.ResultadosRest = new System.Windows.Forms.DataGridView();
+            this.ResultadosSoli = new System.Windows.Forms.DataGridView();
             this.btnSalirSol = new System.Windows.Forms.Button();
             this.btnModificarSol = new System.Windows.Forms.Button();
             this.btnExportTxt = new System.Windows.Forms.Button();
@@ -49,7 +49,10 @@
             this.txtTituloRest = new System.Windows.Forms.Label();
             this.lblTelSol = new System.Windows.Forms.Label();
             this.txtTelSol = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.ResultadosRest)).BeginInit();
+            this.btnBuscarSol = new System.Windows.Forms.Button();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtIdSoli = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ResultadosSoli)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEliminarSol
@@ -60,7 +63,7 @@
             this.btnEliminarSol.TabIndex = 57;
             this.btnEliminarSol.Text = "Eliminar";
             this.btnEliminarSol.UseVisualStyleBackColor = true;
-            this.btnEliminarSol.Click += new System.EventHandler(this.btnEliminarRest_Click);
+            this.btnEliminarSol.Click += new System.EventHandler(this.btnEliminarSol_Click);
             // 
             // btnActualizarSol
             // 
@@ -70,6 +73,7 @@
             this.btnActualizarSol.TabIndex = 56;
             this.btnActualizarSol.Text = "Actualizar";
             this.btnActualizarSol.UseVisualStyleBackColor = true;
+            this.btnActualizarSol.Click += new System.EventHandler(this.btnActualizarSol_Click);
             // 
             // btnIngresarSol
             // 
@@ -79,6 +83,7 @@
             this.btnIngresarSol.TabIndex = 55;
             this.btnIngresarSol.Text = "Ingresar";
             this.btnIngresarSol.UseVisualStyleBackColor = true;
+            this.btnIngresarSol.Click += new System.EventHandler(this.btnIngresarSol_Click);
             // 
             // txtNomSol
             // 
@@ -112,12 +117,12 @@
             this.lblApeSol.TabIndex = 51;
             this.lblApeSol.Text = "Apellido";
             // 
-            // txtTelRest
+            // txtEmailSol
             // 
-            this.txtTelRest.Location = new System.Drawing.Point(594, 216);
-            this.txtTelRest.Name = "txtTelRest";
-            this.txtTelRest.Size = new System.Drawing.Size(145, 22);
-            this.txtTelRest.TabIndex = 50;
+            this.txtEmailSol.Location = new System.Drawing.Point(594, 216);
+            this.txtEmailSol.Name = "txtEmailSol";
+            this.txtEmailSol.Size = new System.Drawing.Size(145, 22);
+            this.txtEmailSol.TabIndex = 50;
             // 
             // lblEmailSol
             // 
@@ -144,18 +149,18 @@
             this.lblCedSol.TabIndex = 47;
             this.lblCedSol.Text = "Cédula";
             // 
-            // ResultadosRest
+            // ResultadosSoli
             // 
-            this.ResultadosRest.AllowUserToAddRows = false;
-            this.ResultadosRest.AllowUserToDeleteRows = false;
-            this.ResultadosRest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ResultadosRest.Location = new System.Drawing.Point(55, 166);
-            this.ResultadosRest.Name = "ResultadosRest";
-            this.ResultadosRest.ReadOnly = true;
-            this.ResultadosRest.RowHeadersWidth = 51;
-            this.ResultadosRest.RowTemplate.Height = 24;
-            this.ResultadosRest.Size = new System.Drawing.Size(758, 302);
-            this.ResultadosRest.TabIndex = 42;
+            this.ResultadosSoli.AllowUserToAddRows = false;
+            this.ResultadosSoli.AllowUserToDeleteRows = false;
+            this.ResultadosSoli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ResultadosSoli.Location = new System.Drawing.Point(98, 161);
+            this.ResultadosSoli.Name = "ResultadosSoli";
+            this.ResultadosSoli.ReadOnly = true;
+            this.ResultadosSoli.RowHeadersWidth = 51;
+            this.ResultadosSoli.RowTemplate.Height = 24;
+            this.ResultadosSoli.Size = new System.Drawing.Size(721, 302);
+            this.ResultadosSoli.TabIndex = 42;
             // 
             // btnSalirSol
             // 
@@ -165,15 +170,17 @@
             this.btnSalirSol.TabIndex = 46;
             this.btnSalirSol.Text = "Salir";
             this.btnSalirSol.UseVisualStyleBackColor = true;
+            this.btnSalirSol.Click += new System.EventHandler(this.btnSalirSol_Click);
             // 
             // btnModificarSol
             // 
-            this.btnModificarSol.Location = new System.Drawing.Point(55, 115);
+            this.btnModificarSol.Location = new System.Drawing.Point(98, 115);
             this.btnModificarSol.Name = "btnModificarSol";
             this.btnModificarSol.Size = new System.Drawing.Size(112, 35);
             this.btnModificarSol.TabIndex = 45;
             this.btnModificarSol.Text = "Modificar";
             this.btnModificarSol.UseVisualStyleBackColor = true;
+            this.btnModificarSol.Click += new System.EventHandler(this.btnModificarSol_Click);
             // 
             // btnExportTxt
             // 
@@ -183,12 +190,13 @@
             this.btnExportTxt.TabIndex = 44;
             this.btnExportTxt.Text = "Exportar a Txt";
             this.btnExportTxt.UseVisualStyleBackColor = true;
+            this.btnExportTxt.Click += new System.EventHandler(this.btnExportTxt_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(588, 81);
+            this.label2.Location = new System.Drawing.Point(552, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 25);
             this.label2.TabIndex = 43;
@@ -198,7 +206,7 @@
             // txtNombreRest
             // 
             this.txtNombreRest.AutoSize = true;
-            this.txtNombreRest.Location = new System.Drawing.Point(558, 132);
+            this.txtNombreRest.Location = new System.Drawing.Point(522, 134);
             this.txtNombreRest.Name = "txtNombreRest";
             this.txtNombreRest.Size = new System.Drawing.Size(50, 16);
             this.txtNombreRest.TabIndex = 41;
@@ -206,7 +214,7 @@
             // 
             // txtBuscarCedSol
             // 
-            this.txtBuscarCedSol.Location = new System.Drawing.Point(632, 129);
+            this.txtBuscarCedSol.Location = new System.Drawing.Point(596, 131);
             this.txtBuscarCedSol.Name = "txtBuscarCedSol";
             this.txtBuscarCedSol.Size = new System.Drawing.Size(181, 22);
             this.txtBuscarCedSol.TabIndex = 40;
@@ -215,7 +223,7 @@
             // 
             this.txtTituloRest.AutoSize = true;
             this.txtTituloRest.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTituloRest.Location = new System.Drawing.Point(265, 9);
+            this.txtTituloRest.Location = new System.Drawing.Point(279, 9);
             this.txtTituloRest.Name = "txtTituloRest";
             this.txtTituloRest.Size = new System.Drawing.Size(264, 36);
             this.txtTituloRest.TabIndex = 39;
@@ -238,11 +246,40 @@
             this.txtTelSol.Size = new System.Drawing.Size(145, 22);
             this.txtTelSol.TabIndex = 59;
             // 
+            // btnBuscarSol
+            // 
+            this.btnBuscarSol.Location = new System.Drawing.Point(791, 129);
+            this.btnBuscarSol.Name = "btnBuscarSol";
+            this.btnBuscarSol.Size = new System.Drawing.Size(65, 26);
+            this.btnBuscarSol.TabIndex = 60;
+            this.btnBuscarSol.Text = "Buscar";
+            this.btnBuscarSol.UseVisualStyleBackColor = true;
+            this.btnBuscarSol.Click += new System.EventHandler(this.btnBuscarSol_Click);
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(134, 179);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(20, 16);
+            this.lblId.TabIndex = 61;
+            this.lblId.Text = "ID";
+            // 
+            // txtIdSoli
+            // 
+            this.txtIdSoli.Location = new System.Drawing.Point(187, 179);
+            this.txtIdSoli.Name = "txtIdSoli";
+            this.txtIdSoli.Size = new System.Drawing.Size(145, 22);
+            this.txtIdSoli.TabIndex = 62;
+            // 
             // GestionSolicitante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 554);
+            this.Controls.Add(this.txtIdSoli);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.btnBuscarSol);
             this.Controls.Add(this.txtTelSol);
             this.Controls.Add(this.lblTelSol);
             this.Controls.Add(this.btnEliminarSol);
@@ -252,11 +289,11 @@
             this.Controls.Add(this.lblNomSol);
             this.Controls.Add(this.txtApeSol);
             this.Controls.Add(this.lblApeSol);
-            this.Controls.Add(this.txtTelRest);
+            this.Controls.Add(this.txtEmailSol);
             this.Controls.Add(this.lblEmailSol);
             this.Controls.Add(this.txtCedSol);
             this.Controls.Add(this.lblCedSol);
-            this.Controls.Add(this.ResultadosRest);
+            this.Controls.Add(this.ResultadosSoli);
             this.Controls.Add(this.btnSalirSol);
             this.Controls.Add(this.btnModificarSol);
             this.Controls.Add(this.btnExportTxt);
@@ -266,7 +303,8 @@
             this.Controls.Add(this.txtTituloRest);
             this.Name = "GestionSolicitante";
             this.Text = "GestionSolicitante";
-            ((System.ComponentModel.ISupportInitialize)(this.ResultadosRest)).EndInit();
+            this.Load += new System.EventHandler(this.GestionSolicitante_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ResultadosSoli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,11 +319,11 @@
         private System.Windows.Forms.Label lblNomSol;
         private System.Windows.Forms.TextBox txtApeSol;
         private System.Windows.Forms.Label lblApeSol;
-        private System.Windows.Forms.TextBox txtTelRest;
+        private System.Windows.Forms.TextBox txtEmailSol;
         private System.Windows.Forms.Label lblEmailSol;
         private System.Windows.Forms.TextBox txtCedSol;
         private System.Windows.Forms.Label lblCedSol;
-        private System.Windows.Forms.DataGridView ResultadosRest;
+        private System.Windows.Forms.DataGridView ResultadosSoli;
         private System.Windows.Forms.Button btnSalirSol;
         private System.Windows.Forms.Button btnModificarSol;
         private System.Windows.Forms.Button btnExportTxt;
@@ -295,5 +333,8 @@
         private System.Windows.Forms.Label txtTituloRest;
         private System.Windows.Forms.Label lblTelSol;
         private System.Windows.Forms.TextBox txtTelSol;
+        private System.Windows.Forms.Button btnBuscarSol;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox txtIdSoli;
     }
 }

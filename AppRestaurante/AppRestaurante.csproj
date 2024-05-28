@@ -63,6 +63,7 @@
     <Compile Include="Helper\ExportDataFile.cs" />
     <Compile Include="Helper\OpinionesBD.cs" />
     <Compile Include="Helper\RestauranteBD.cs" />
+    <Compile Include="Helper\SolicitanteBD.cs" />
     <Compile Include="Interfaces Graficas\GestionOpiniones.cs">
       <SubType>Form</SubType>
     </Compile>
