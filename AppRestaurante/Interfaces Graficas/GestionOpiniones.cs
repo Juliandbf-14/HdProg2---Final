@@ -17,7 +17,6 @@ namespace AppRestaurante.Interfaces_Graficas
         private bool swCrud = false;
         private bool swModificarOpi = false;
 
-        private ListBox tempList = new ListBox();
         private int tempId;
         private string tempOpinion;
         private int tempCal;
@@ -35,7 +34,7 @@ namespace AppRestaurante.Interfaces_Graficas
 
         private void CargarDatosInicio()
         {
-            OcultarComponentesRestaurante();
+            OcultarComponentesOpinion();
             CargarRestaurantes();
             CargarOpiniones();
         }
@@ -55,7 +54,7 @@ namespace AppRestaurante.Interfaces_Graficas
             try
             {
                 operacionesBd = new OpinionesBD();
-                OcultarComponentesRestaurante();
+                OcultarComponentesOpinion();
 
                 opiDataTable = operacionesBd.consultarDatos();
                 ResultadosOpi.DataSource = opiDataTable;
@@ -192,7 +191,7 @@ namespace AppRestaurante.Interfaces_Graficas
             swCrud = true;
             btnModificarOpi.Hide();
             txtIdOpi.Enabled = false;
-            MostrarComponentesRestaurante();
+            MostrarComponentesOpinion();
 
             BuscarOpinionId();
         }
@@ -200,13 +199,12 @@ namespace AppRestaurante.Interfaces_Graficas
         private void btnSalirOpi_Click(object sender, EventArgs e)
         {
             CargarDatosInicio();
-            OcultarComponentesRestaurante();
+            OcultarComponentesOpinion();
             LimpiarCampos();
         }
 
         public void ValorTemporales(OpinionCalificacion opinion)
         {
-            tempList = new ListBox();
             tempId = int.Parse(txtIdOpi.Text);
             tempOpinion = txtOpinion.Text;
             tempCal = int.Parse(txtCalificacion.Text);
@@ -221,11 +219,6 @@ namespace AppRestaurante.Interfaces_Graficas
             btnIngresarOpi.Enabled = true;
         }
 
-        private void btnExportTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LimpiarCampos()
         {
             txtIdOpi.Text = "";
@@ -233,7 +226,7 @@ namespace AppRestaurante.Interfaces_Graficas
             txtOpinion.Text = "";
         }
 
-        private void MostrarComponentesRestaurante()
+        private void MostrarComponentesOpinion()
         {
             ResultadosOpi.Visible = false;
             btnExportTxt.Hide();
@@ -260,7 +253,7 @@ namespace AppRestaurante.Interfaces_Graficas
             btnEliminarOpi.Enabled = false;
         }
 
-        private void OcultarComponentesRestaurante()
+        private void OcultarComponentesOpinion()
         {
             ResultadosOpi.Visible = true;
             btnExportTxt.Show();
@@ -286,6 +279,11 @@ namespace AppRestaurante.Interfaces_Graficas
         }
 
         private void ResultadosOpi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnExportTxt_Click(object sender, EventArgs e)
         {
 
         }
